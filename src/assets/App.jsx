@@ -93,7 +93,7 @@ export const App = () => {
             
             
         </ul>
-        <button className="left" onClick={()=> prevImage()}><span class="material-symbols-outlined noTranslate">
+        <button className="left" onClick={()=> prevImage()}><span class="material-symbols-outlined notranslate">
 arrow_downward
 </span></button>
         <ul className="right-slider" ref={rightSliderRef} style={{transform: `translateY(-${translate}px)`}}>
@@ -103,7 +103,7 @@ arrow_downward
             <li className="img image4"id='4'></li>
             
         </ul>
-        <button className="right" onClick={()=> changeImage()}><span class="material-symbols-outlined noTranslate">
+        <button className="right" onClick={()=> changeImage()}><span class="material-symbols-outlined notranslate">
 arrow_upward
 </span></button>
     </div>
