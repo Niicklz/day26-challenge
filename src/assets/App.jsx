@@ -6,15 +6,16 @@ export const App = () => {
    
     
     const [index, setIndex] = useState(1)  
-    const windowRef = useRef(window)
+    const windowRef = useRef()
     const leftSliderRef = useRef()
     const rightSliderRef = useRef()
-    const [size, setSize] = useState(windowRef.current.innerHeight)
+    const [size, setSize] = useState(window.innerHeight)
  
     const sizeChange = () => {
+       
         leftSliderRef.current.style.transition = "0s"
     rightSliderRef.current.style.transition = "0s"
-        const newHeight = windowRef.current.innerHeight;
+        const newHeight = windowRef.current.clientHeight;
         setSize(newHeight);
        if (index-1 === 0) return
         setTranslate((index -1)  * newHeight);
@@ -72,7 +73,7 @@ export const App = () => {
     
       
   return (
-    <div className='container' >
+    <div className='container' ref={windowRef} >
         <ul className="left-slider" ref={leftSliderRef} style={{transform: `translateY(${translate}px)`}}>
             <li className="image1-text">
                 <h2 className='title'>Flying Eagle</h2>
@@ -93,7 +94,7 @@ export const App = () => {
             
             
         </ul>
-        <button className="left" onClick={()=> prevImage()}><span class="material-symbols-outlined notranslate">
+        <button className="left" onClick={()=> prevImage()}><span className="material-symbols-outlined notranslate">
 arrow_downward
 </span></button>
         <ul className="right-slider" ref={rightSliderRef} style={{transform: `translateY(-${translate}px)`}}>
@@ -103,7 +104,7 @@ arrow_downward
             <li className="img image4"id='4'></li>
             
         </ul>
-        <button className="right" onClick={()=> changeImage()}><span class="material-symbols-outlined notranslate">
+        <button className="right" onClick={()=> changeImage()}><span className="material-symbols-outlined notranslate">
 arrow_upward
 </span></button>
     </div>
